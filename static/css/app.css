@@ -8,7 +8,7 @@
   left: 250px;
   right: 0;
   height: 50px;
-  background: #79589f;
+  background: #4f0599;
 }
 
 #nav ul {
@@ -51,10 +51,11 @@
 }
 
 #nav ul li.selected:before {
-  content: ' ';
+  content: " ";
   position: absolute;
   bottom: -1px;
-  left: 0; right: 0;
+  left: 0;
+  right: 0;
   height: 1px;
   widows: 100%;
   background: #fff;
@@ -71,7 +72,7 @@
   top: 0px;
   bottom: 0px;
   box-sizing: border-box;
-  background: #f9f9f9;
+  background: #eeeeff;
 }
 
 #sidebar .current-database {
@@ -84,7 +85,7 @@
   font-weight: bold;
   font-size: 14px;
   color: #fff;
-  background: #79589f;
+  background: #4f0599;
   z-index: 900;
 }
 
@@ -226,8 +227,9 @@
   overflow: auto;
 }
 
-
-#sidebar div.tables-list #tables, #sequences, #objects {
+#sidebar div.tables-list #tables,
+#sequences,
+#objects {
   font-size: 12px;
 }
 
@@ -264,11 +266,11 @@
   height: 24px;
   padding: 0 8px 0 8px;
   font-size: 12px;
-  color: #7F7E7F !important;
+  color: #7f7e7f !important;
 }
 
 #sidebar div.table-information .lines .line span {
-  color: #4F4F4F;
+  color: #4f4f4f;
   min-width: 0;
   padding-left: 0px;
 }
@@ -302,7 +304,8 @@
   bottom: 0px;
 }
 
-#input_resize_handler:hover, #input_resize_handler.dragging {
+#input_resize_handler:hover,
+#input_resize_handler.dragging {
   height: 3px;
 }
 
@@ -494,7 +497,7 @@
 
 #results tr:nth-child(odd) > td {
   border: none;
-  background: #f9f9f9;
+  background: #eeeeff;
 }
 
 #results th {
@@ -717,7 +720,8 @@
   display: none;
 }
 
-#edit_connection, #close_connection {
+#edit_connection,
+#close_connection {
   background: #79589f;
   color: #fff;
   border-color: #fff;
@@ -806,12 +810,24 @@
 /* Sidebar Schema Objects */
 /* -------------------------------------------------------------------------- */
 
-.schema {}
-.schema i                           { display: inline-block; margin-right: 4px; }
-.schema i.fa-folder-o               { display: inline-block; }
-.schema i.fa-folder-open-o          { display: none; }
-.schema.expanded i.fa-folder-open-o { display: inline-block; }
-.schema.expanded i.fa-folder-o      { display: none; }
+.schema {
+}
+.schema i {
+  display: inline-block;
+  margin-right: 4px;
+}
+.schema i.fa-folder-o {
+  display: inline-block;
+}
+.schema i.fa-folder-open-o {
+  display: none;
+}
+.schema.expanded i.fa-folder-open-o {
+  display: inline-block;
+}
+.schema.expanded i.fa-folder-o {
+  display: none;
+}
 
 .schema .schema-name {
   font-weight: bold;
@@ -901,7 +917,8 @@
 /* Ace Customizations */
 /* -------------------------------------------------------------------------- */
 
-.ace_gutter, .ace_gutter-cell {
+.ace_gutter,
+.ace_gutter-cell {
   background: #fff !important;
   color: #bbb;
   font-size: 12px;

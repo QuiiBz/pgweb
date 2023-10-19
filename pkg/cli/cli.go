@@ -4,7 +4,6 @@ import (
 	"errors"
 	"fmt"
 	"os"
-	"os/exec"
 	"os/signal"
 	"regexp"
 	"strings"
@@ -235,9 +234,6 @@ func startServer() {
 		err := router.Run(fmt.Sprintf("%v:%v", options.HTTPHost, options.HTTPPort))
 		if err != nil {
 			fmt.Println("Cant start server:", err)
-			if strings.Contains(err.Error(), "address already in use") {
-				openPage()
-			}
 			os.Exit(1)
 		}
 	}()
@@ -259,25 +255,6 @@ func handleSignals() {
 	c := make(chan os.Signal, 1)
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 	<-c
-}
-
-func openPage() {
-	url := fmt.Sprintf("http://%v:%v/%s", options.HTTPHost, options.HTTPPort, options.Prefix)
-	fmt.Println("To view database open", url, "in browser")
-
-	if options.SkipOpen {
-		return
-	}
-
-	_, err := exec.Command("which", "open").Output()
-	if err != nil {
-		return
-	}
-
-	_, err = exec.Command("open", url).Output()
-	if err != nil {
-		fmt.Println("Unable to auto-open pgweb URL:", err)
-	}
 }
 
 func Run() {
@@ -314,6 +291,5 @@ func Run() {
 	}
 
 	startServer()
-	openPage()
 	handleSignals()
 }
